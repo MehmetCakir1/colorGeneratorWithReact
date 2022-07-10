@@ -27,7 +27,7 @@ const App = () => {
 console.log(colorList);
   return (
     <div className="p-3" >
-      <form onSubmit={handleSubmit} className="d-flex justify-content-center align-items-center flex-column flex-sm-row my-3 p-3">
+      <form onSubmit={handleSubmit} className="d-flex justify-content-center align-items-center flex-column flex-sm-row my-3 p-1">
         <label className="fw-bold pe-1 fs-5 fs-lg-4 pe-lg-4" htmlFor="color">Color Generator</label>
         <input
           type="text"
@@ -36,7 +36,7 @@ console.log(colorList);
           placeholder="#003840"
           value={colorText}
           onChange={(e) => setColorText(e.target.value)}
-          className={`fw-bold fs-4 me-2 " ${error && "border border-4 border-danger"}`}
+          className={`fw-bold fs-4 me-1 me-md-2 " ${error && "border border-4 border-danger"}`}
         />
         <button className="fw-bold fs-5 py-1 px-2 rounded-3 bg-danger text-light mt-2 mt-sm-0" type="submit">Submit</button>
       </form>
