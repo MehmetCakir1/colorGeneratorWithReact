@@ -2,7 +2,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Values from "values.js";
 import React, { useState } from "react";
-import rgbToHex from "./utils/utils";
 import Colors from "./components/Colors";
 
 const App = () => {
@@ -18,10 +17,10 @@ const App = () => {
       let colors = new Values(colorText).all(10);
       setColorList(colors);
       // console.log(colors);
-    } catch (err) {
+    } catch (error) {
       setError(true)
       alert("Please enter a valid value")
-      console.log(err);
+      console.log(error);
     }
   };
 console.log(colorList);
@@ -35,8 +34,8 @@ console.log(colorList);
           name="color"
           placeholder="#003840"
           value={colorText}
-          onChange={(e) => setColorText(e.target.value)}
-          className={`fw-bold fs-4 me-1 me-md-2 px-1 " ${error && "border border-4 border-danger"}`}
+          onChange={(e) => {setColorText(e.target.value); setError(false)}}
+          className={`fw-bold fs-4 me-1 me-md-2 px-1 ${error ? "border border-4 border-danger" : null}`}
         />
         <button className="fw-bold fs-5 py-1 px-2 rounded-3 bg-danger text-light mt-2 mt-lg-0" type="submit">Submit</button>
       </form>
